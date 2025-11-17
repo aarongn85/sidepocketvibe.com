@@ -1,17 +1,7 @@
-<?php 
-$title = '404 - Page Not Found';
-require_once APP_PATH . '/views/layouts/header.php'; 
+<?php
+// app/views/errors/404.php
+http_response_code(404);
 ?>
-
-<section class="error-page">
-    <div class="container">
-        <div class="error-content">
-            <h1>404</h1>
-            <h2>Page Not Found</h2>
-            <p>Sorry, the page you're looking for doesn't exist.</p>
-            <a href="/" class="btn btn-primary">Go Back Home</a>
-        </div>
-    </div>
-</section>
-
-<?php require_once APP_PATH . '/views/layouts/footer.php'; ?>
+  <h1>404 Not Found</h1>
+  <p>The page you are looking for could not be found.</p>
+  <p><a href="/">Home</a></p>

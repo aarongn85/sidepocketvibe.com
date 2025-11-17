@@ -1,33 +1,32 @@
 <?php
-/**
- * Article Controller
- * Handles article pages
- */
+// app/controllers/ArticleController.php
+class ArticleController {
+    private $articles = [
+        'welcome' => [
+            'title' => 'Welcome',
+            'author' => 'Admin',
+            'body' => "This is a placeholder article named \"Welcome\". Replace with DB-driven content later."
+        ],
+        'getting-started' => [
+            'title' => 'Getting Started',
+            'author' => 'Admin',
+            'body' => "This is a placeholder \"Getting Started\" article explaining the structure."
+        ]
+    ];
 
-class ArticleController extends Controller {
-    /**
-     * Display a single article
-     */
+    public function index() {
+        $articles = $this->articles;
+        require_once APP_PATH . '/views/articles/index.php';
+    }
+
     public function show($slug) {
-        // Load article model
-        $articleModel = $this->model('Article');
-        
-        // Get the article by slug
-        $article = $articleModel->getBySlug($slug);
-        
-        if (!$article) {
+        if (!isset($this->articles[$slug])) {
             http_response_code(404);
-            $this->view('errors/404');
-            return;
+            require_once APP_PATH . '/views/errors/404.php';
+            exit;
         }
-        
-        // Prepare data for the view
-        $data = [
-            'title' => $article['title'],
-            'article' => $article
-        ];
-        
-        // Load the view
-        $this->view('pages/article', $data);
+
+        $article = $this->articles[$slug];
+        require_once APP_PATH . '/views/articles/show.php';
     }
 }
