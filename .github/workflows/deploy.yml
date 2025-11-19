@@ -1,0 +1,37 @@
+name: Deploy SidePocketVibe Website to Brian's Ubuntu
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SSH_HOST: 150.252.186.199
+      SSH_USER: jensenbp
+      WEB_DIR: /var/www/sidepocketvibe.com
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up SSH
+        run: |
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
+          echo "${{ secrets.UBUNTU_SERVER_SSH_KEY_B64 }}" | base64 -d > "$HOME/.ssh/id_gha"
+          chmod 600 "$HOME/.ssh/id_gha"
+          ssh-keyscan -H "$SSH_HOST" >> "$HOME/.ssh/known_hosts"
+
+      - name: Deploy
+        run: |
+          ssh -i "$HOME/.ssh/id_gha" -o StrictHostKeyChecking=yes -o IdentitiesOnly=yes "$SSH_USER"@"$SSH_HOST" "
+            set -e
+            cd '$WEB_DIR'
+            git fetch --all --prune
+            git reset --hard origin/main
+          "

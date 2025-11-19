@@ -136,244 +136,7 @@ if (empty($articles)) {
 require_once APP_PATH . '/views/layouts/header.php'; 
 ?>
 
-<!-- Sticky Discord Sidebar (Always Visible) -->
-<aside id="stickyDiscord" class="discord-sticky">
-    <div class="discord-controls">
-        <button class="discord-btn discord-collapse-btn" id="discordCollapseBtn" aria-label="Collapse Discord sidebar" title="Hide">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-        </button>
-        <button class="discord-btn discord-expand-btn" id="discordExpandBtn" aria-label="Maximize Discord sidebar" title="Maximize">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-            </svg>
-        </button>
-        <button class="discord-btn discord-shrink-btn" id="discordShrinkBtn" aria-label="Exit fullscreen" title="Exit Fullscreen">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
-            </svg>
-        </button>
-    </div>
-    
-    <button class="discord-open-btn" id="discordOpenBtn" aria-label="Open Discord sidebar">
-        <svg class="discord-icon-btn" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg">
-            <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
-        </svg>
-    </button>
-    
-    <div class="discord-panel">
-        <!-- Server/Channel Navigation (collapsed state) -->
-        <div class="discord-nav">
-            <div class="discord-nav-header">
-                <svg class="discord-icon" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
-                </svg>
-                <h3>SidePocket Vibe</h3>
-            </div>
-            
-            <div class="discord-nav-section">
-                <div class="discord-nav-title">TEXT CHANNELS</div>
-                <div class="discord-channel-item active" data-channel="general">
-                    <span class="channel-icon">#</span>
-                    <span class="channel-name">general-chat</span>
-                    <span class="channel-badge">124</span>
-                </div>
-                <div class="discord-channel-item" data-channel="news">
-                    <span class="channel-icon">#</span>
-                    <span class="channel-name">billiards-news</span>
-                    <span class="channel-badge">43</span>
-                </div>
-                <div class="discord-channel-item" data-channel="tips">
-                    <span class="channel-icon">#</span>
-                    <span class="channel-name">pool-tips</span>
-                    <span class="channel-badge">89</span>
-                </div>
-                <div class="discord-channel-item" data-channel="tournaments">
-                    <span class="channel-icon">#</span>
-                    <span class="channel-name">tournament-talk</span>
-                    <span class="channel-badge">31</span>
-                </div>
-                <div class="discord-channel-item" data-channel="gear">
-                    <span class="channel-icon">#</span>
-                    <span class="channel-name">equipment-reviews</span>
-                    <span class="channel-badge">67</span>
-                </div>
-            </div>
-            
-            <div class="discord-nav-section">
-                <div class="discord-nav-title">COMMUNITY SERVERS</div>
-                <div class="discord-server-item" data-link="/articles">
-                    <div class="server-icon">🎱</div>
-                    <div class="server-info">
-                        <div class="server-name">Pro Players Hub</div>
-                        <div class="server-meta">2.3k members • Public</div>
-                    </div>
-                </div>
-                <div class="discord-server-item" data-link="/articles">
-                    <div class="server-icon">🏆</div>
-                    <div class="server-info">
-                        <div class="server-name">Tournament Central</div>
-                        <div class="server-meta">1.8k members • Public</div>
-                    </div>
-                </div>
-                <div class="discord-server-item members-only" data-link="/articles">
-                    <div class="server-icon">👑</div>
-                    <div class="server-info">
-                        <div class="server-name">VIP Lounge</div>
-                        <div class="server-meta">Members Only</div>
-                    </div>
-                    <span class="lock-icon">🔒</span>
-                </div>
-                <div class="discord-server-item" data-link="/articles">
-                    <div class="server-icon">📚</div>
-                    <div class="server-info">
-                        <div class="server-name">Learning Zone</div>
-                        <div class="server-meta">950 members • Public</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="discord-nav-footer">
-                <a href="https://discord.gg/sidepocketvibe" target="_blank" class="discord-join-main-btn">Join SidePocket Vibe on Discord</a>
-            </div>
-        </div>
-        
-        <!-- Main Chat Area (expanded state) -->
-        <div class="discord-main">
-            <div class="discord-header">
-                <div class="discord-header-left">
-                    <span class="channel-icon-header">#</span>
-                    <h3 id="currentChannelName">general-chat</h3>
-                    <div class="channel-topic">Welcome to the SidePocket Vibe community! Share your passion for billiards 🎱</div>
-                </div>
-                <div class="discord-header-right">
-                    <span class="discord-online-count">
-                        <span class="online-dot"></span>
-                        347 Online
-                    </span>
-                </div>
-            </div>
-        
-            <div class="discord-messages" id="discordMessages">
-                    <div class="discord-message">
-                        <div class="discord-avatar">SP</div>
-                        <div class="discord-message-content">
-                            <div class="discord-message-header">
-                                <span class="discord-username">SidePocket</span>
-                                <span class="discord-timestamp">Today at 2:34 PM</span>
-                            </div>
-                            <div class="discord-message-text">New article just dropped! Check out "The Evolution of 9-Ball" 🎱</div>
-                        </div>
-                    </div>
-                    
-                    <div class="discord-message">
-                        <div class="discord-avatar">RM</div>
-                        <div class="discord-message-content">
-                            <div class="discord-message-header">
-                                <span class="discord-username">RackMaster</span>
-                                <span class="discord-timestamp">Today at 1:15 PM</span>
-                            </div>
-                            <div class="discord-message-text">Anyone heading to the tournament this weekend?</div>
-                        </div>
-                    </div>
-                    
-                    <div class="discord-message">
-                        <div class="discord-avatar">PT</div>
-                        <div class="discord-message-content">
-                            <div class="discord-message-header">
-                                <span class="discord-username">PoolTiger</span>
-                                <span class="discord-timestamp">Today at 10:45 AM</span>
-                            </div>
-                            <div class="discord-message-text">Just joined! Looking forward to learning from everyone here 👋</div>
-                        </div>
-                    </div>
-                    
-                    <div class="discord-message">
-                        <div class="discord-avatar">CP</div>
-                        <div class="discord-message-content">
-                            <div class="discord-message-header">
-                                <span class="discord-username">CueProdigy</span>
-                                <span class="discord-role moderator">MODERATOR</span>
-                                <span class="discord-timestamp">Today at 9:30 AM</span>
-                            </div>
-                            <div class="discord-message-text">Good morning everyone! Remember to check out today's featured article on break shot techniques 💪</div>
-                        </div>
-                    </div>
-                    
-                    <div class="discord-message">
-                        <div class="discord-avatar">8B</div>
-                        <div class="discord-message-content">
-                            <div class="discord-message-header">
-                                <span class="discord-username">8BallKing</span>
-                                <span class="discord-timestamp">Yesterday at 11:20 PM</span>
-                            </div>
-                            <div class="discord-message-text">Bay Area Championship next month! Who's competing?</div>
-                        </div>
-                    </div>
-                    
-                    <div class="discord-message">
-                        <div class="discord-avatar">BC</div>
-                        <div class="discord-message-content">
-                            <div class="discord-message-header">
-                                <span class="discord-username">BankCredits</span>
-                                <span class="discord-timestamp">Yesterday at 10:05 PM</span>
-                            </div>
-                            <div class="discord-message-text">Just qualified for my first regional tournament! 🔥</div>
-                        </div>
-                    </div>
-                    
-                    <div class="discord-message">
-                        <div class="discord-avatar">SM</div>
-                        <div class="discord-message-content">
-                            <div class="discord-message-header">
-                                <span class="discord-username">SharpShooter Mike</span>
-                                <span class="discord-timestamp">Yesterday at 7:45 PM</span>
-                            </div>
-                            <div class="discord-message-text">Pro tip: Always chalk before every shot, not just the break! It makes a huge difference in consistency.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="discord-message">
-                        <div class="discord-avatar">AS</div>
-                        <div class="discord-message-content">
-                            <div class="discord-message-header">
-                                <span class="discord-username">AngleSolver</span>
-                                <span class="discord-timestamp">Yesterday at 6:15 PM</span>
-                            </div>
-                            <div class="discord-message-text">Anyone have tips for consistent English/spin control? I can get it maybe 7 out of 10 times but want to improve.</div>
-                        </div>
-                    </div>
-                    
-                    <div class="discord-message">
-                        <div class="discord-avatar">TD</div>
-                        <div class="discord-message-content">
-                            <div class="discord-message-header">
-                                <span class="discord-username">TourneyDan</span>
-                                <span class="discord-role vip">VIP</span>
-                                <span class="discord-timestamp">Yesterday at 4:30 PM</span>
-                            </div>
-                            <div class="discord-message-text">Reminder: Online qualifier starts this Friday at 7 PM EST. Registration closes in 48 hours!</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="discord-input-area">
-                    <div class="discord-input-wrapper">
-                        <span class="discord-input-placeholder">Message #general-chat</span>
-                    </div>
-                </div>
-                
-                <!-- Join Button (visible when not expanded) -->
-                <div class="discord-join-footer">
-                    <a href="https://discord.gg/sidepocketvibe" target="_blank" class="discord-join-main-btn">Join SidePocket Vibe on Discord</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</aside>
-
-<!-- Hero Section with Article Carousel -->
+<!-- Hero Section with Article Carousel and Discord -->
 <section class="hero">
     <div class="hero-content">
         <div class="hero-featured">
@@ -433,6 +196,85 @@ require_once APP_PATH . '/views/layouts/header.php';
                 </div>
             </div>
         </div>
+        
+        <!-- Discord Sidebar in Hero -->
+        <aside class="discord-sidebar hero-discord">
+            <div class="discord-header">
+                <h3>
+                    <svg class="discord-icon" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                    </svg>
+                    Discord Community
+                </h3>
+            </div>
+            
+            <div class="discord-channels">
+                <div class="discord-channel active">general-chat</div>
+                <div class="discord-channel">pool-tips</div>
+                <div class="discord-channel">tournament-talk</div>
+            </div>
+            
+            <div class="discord-messages">
+                <div class="discord-message">
+                    <div class="discord-avatar">SP</div>
+                    <div class="discord-message-content">
+                        <div class="discord-message-header">
+                            <span class="discord-username">SidePocket</span>
+                            <span class="discord-timestamp">Today at 2:34 PM</span>
+                        </div>
+                        <div class="discord-message-text">New article just dropped! Check out "The Evolution of 9-Ball" 🎱</div>
+                    </div>
+                </div>
+                
+                <div class="discord-message">
+                    <div class="discord-avatar">RM</div>
+                    <div class="discord-message-content">
+                        <div class="discord-message-header">
+                            <span class="discord-username">RackMaster</span>
+                            <span class="discord-timestamp">Today at 1:15 PM</span>
+                        </div>
+                        <div class="discord-message-text">Anyone heading to the tournament this weekend?</div>
+                    </div>
+                </div>
+                
+                <div class="discord-message">
+                    <div class="discord-avatar">CP</div>
+                    <div class="discord-message-content">
+                        <div class="discord-message-header">
+                            <span class="discord-username">CueProdigy</span>
+                            <span class="discord-timestamp">Today at 12:45 PM</span>
+                        </div>
+                        <div class="discord-message-text">That break shot technique article was super helpful! 💪</div>
+                    </div>
+                </div>
+                
+                <div class="discord-message">
+                    <div class="discord-avatar">8B</div>
+                    <div class="discord-message-content">
+                        <div class="discord-message-header">
+                            <span class="discord-username">8BallKing</span>
+                            <span class="discord-timestamp">Today at 11:20 AM</span>
+                        </div>
+                        <div class="discord-message-text">Looking for practice partners in the SF Bay Area</div>
+                    </div>
+                </div>
+                
+                <div class="discord-message">
+                    <div class="discord-avatar">BC</div>
+                    <div class="discord-message-content">
+                        <div class="discord-message-header">
+                            <span class="discord-username">BankCredits</span>
+                            <span class="discord-timestamp">Today at 10:05 AM</span>
+                        </div>
+                        <div class="discord-message-text">Just hit my first perfect break! The physics really matter 🔥</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="discord-footer">
+                <a href="#" class="discord-join-btn">Join Our Discord</a>
+            </div>
+        </aside>
     </div>
 </section>
 
@@ -512,13 +354,7 @@ require_once APP_PATH . '/views/layouts/header.php';
         <div class="content-section-row">
             
             <!-- Learning Resources -->
-            <div class="content-section content-section-half section-in-development">
-                <div class="development-overlay">
-                    <div class="development-message">
-                        <h3>In Development</h3>
-                        <p>This feature is coming soon!</p>
-                    </div>
-                </div>
+            <div class="content-section content-section-half">
                 <div class="section-header">
                     <h2 class="section-title">
                         <span class="section-icon">📚</span>
@@ -563,13 +399,7 @@ require_once APP_PATH . '/views/layouts/header.php';
             </div>
 
             <!-- Tournaments & Events -->
-            <div class="content-section content-section-half section-in-development">
-                <div class="development-overlay">
-                    <div class="development-message">
-                        <h3>In Development</h3>
-                        <p>This feature is coming soon!</p>
-                    </div>
-                </div>
+            <div class="content-section content-section-half">
                 <div class="section-header">
                     <h2 class="section-title">
                         <span class="section-icon">🏆</span>
