@@ -5,7 +5,7 @@
         <h1>About SidePocketVibe</h1>
         
         <div class="about-content">
-            <p>Welcome to SidePocketVibe!!!, your premier source for billiards news, culture, and community.</p>
+            <p>Welcome to SidePocketVibe!!!!, your premier source for billiards news, culture, and community.</p>
             
             <p>We are passionate about the game of pool and dedicated to bringing you the latest news, expert tips, player profiles, and in-depth articles about all aspects of billiards.</p>
             
